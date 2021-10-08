@@ -10,15 +10,9 @@ import reactor.core.publisher.Mono;
 public class MonoFluxTest {
     @Test
     public void testMono() {
-        Mono<?> monoString1 = Mono.just("javatechie")
-                .then(Mono.error(new RuntimeException(("Exception ocured"))))
-                .log();
-        Mono<?> monoString2 = Mono.just("im am the techie")
-                .then(Mono.error(new RuntimeException(("Exception ocured"))))
-                .log();
-        Mono<?> monoString3 = Mono.just("im am no a good techie :'(")
-                .then(Mono.error(new RuntimeException(("Exception ocured"))))
-                .log();
+        Mono<?> monoString1 = Mono.just("javatechie").log();
+        Mono<?> monoString2 = Mono.just("im am the techie").log();
+        Mono<?> monoString3 = Mono.just("im am no a good techie :'(").log();
         monoString1.subscribe(System.out::println, System.out::println);
         monoString2.subscribe(System.out::println, System.out::println);
         monoString3.subscribe(System.out::println, System.out::println);

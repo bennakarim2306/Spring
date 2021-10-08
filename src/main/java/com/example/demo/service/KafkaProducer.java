@@ -2,19 +2,23 @@ package com.example.demo.service;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@Component
 public class KafkaProducer {
 
-    private final String TOPIC = "myTopic";
+    @Value("${kafka.topic}")
+    private String TOPIC;
 
     private KafkaTemplate<String, String> kafkaTemplate = new KafkaTemplate<>(producerFactory());
 

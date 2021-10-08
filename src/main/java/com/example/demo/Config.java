@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import net.bytebuddy.asm.Advice;
+import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -25,8 +26,7 @@ public class Config {
 
 
     @Bean
-    @Qualifier("companyName")
-    public String getCompanyName() {
+    public String companyName() {
         return "IC-Consult GmbH";
     }
 }

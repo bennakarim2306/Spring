@@ -27,7 +27,7 @@ public class Company {
         this.companyName = companyName;
     }
 
-    public Company(Address address, @Qualifier("companyName") String companyName) {
+    public Company(Address address, String companyName) {
         this.address = address;
         this.companyName = companyName;
     }
